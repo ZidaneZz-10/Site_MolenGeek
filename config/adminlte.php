@@ -243,12 +243,12 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Banniere',
+            'url'  => '/banniere',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'texte description',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],

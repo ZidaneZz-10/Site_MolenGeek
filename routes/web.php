@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BanniereController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +22,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Auth::routes();
 
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
+
+//banniere
+Route::get('/banniere',[BanniereController::class,'index']);
+Route::get('/edit-banniere/{id}', [BanniereController::class, 'edit']);
+Route::post('/update-banniere/{id}', [BanniereController::class, 'update']);
