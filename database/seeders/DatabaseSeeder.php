@@ -19,5 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BanniereSeeder::class,
         ]);
+        $this->call([
+            DescriptionSeeder::class,
+        ]);
     }
 }

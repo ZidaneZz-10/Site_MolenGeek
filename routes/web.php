@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BanniereController;
+use App\Http\Controllers\DescriptionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,8 @@ Route::get('/home', function() {
 Route::get('/banniere',[BanniereController::class,'index']);
 Route::get('/edit-banniere/{id}', [BanniereController::class, 'edit']);
 Route::post('/update-banniere/{id}', [BanniereController::class, 'update']);
+
+//description
+Route::get('/description',[DescriptionController::class,'index']);
+Route::get('/edit-description/{id}', [DescriptionController::class, 'edit']);
+Route::post('/update-description/{id}', [DescriptionController::class, 'update']);

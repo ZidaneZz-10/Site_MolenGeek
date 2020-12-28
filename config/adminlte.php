@@ -249,8 +249,13 @@ return [
         ],
         [
             'text' => 'texte description',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'url'  => '/description',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Contact',
+            'url'  => '/contact',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text'    => 'multilevel',
