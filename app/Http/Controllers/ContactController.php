@@ -14,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts=Contact::all();
+        return view('admin.contact.contact',compact('contacts'));
     }
 
     /**
@@ -55,9 +56,10 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $contact=Contact::find($id);
+        return view('admin.contact.edit',compact('contact'));
     }
 
     /**
@@ -67,9 +69,15 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $update = Contact::find($id);
+        $update->adresse = $request->adresse;
+        $update->tel = $request->tel;
+        $update->mail = $request->mail;
+        $update->map = $request->map;
+        $update->save();
+        return redirect('/contact');
     }
 
     /**
