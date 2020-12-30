@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BanniereController;
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DescriptionController;
 use Illuminate\Support\Facades\Auth;
@@ -44,3 +45,10 @@ Route::post('/update-description/{id}', [DescriptionController::class, 'update']
 Route::get('/contact',[ContactController::class,'index']);
 Route::get('/edit-contact/{id}', [ContactController::class, 'edit']);
 Route::post('/update-contact/{id}', [ContactController::class, 'update']);
+
+//cards
+Route::post('/delete-card/{id}',[CardController::class,'destroy']);
+Route::post('/add-card',[CardController::class,'store']);
+Route::get('/card',[CardController::class,'index']);
+Route::get('/edit-card/{id}', [CardController::class, 'edit']);
+Route::post('/update-card/{id}', [CardController::class, 'update']);

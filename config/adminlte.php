@@ -245,17 +245,22 @@ return [
         [
             'text' => 'Banniere',
             'url'  => '/banniere',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-image',
         ],
         [
             'text' => 'texte description',
             'url'  => '/description',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'far fa-file-alt',
         ],
         [
             'text' => 'Contact',
             'url'  => '/contact',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-info',
+        ],
+        [
+            'text' => 'Cards',
+            'url'  => '/card',
+            'icon' => 'fas fa-newspaper',
         ],
         [
             'text'    => 'multilevel',
