@@ -234,10 +234,41 @@ return [
             'icon'        => 'far fa-fw fa-file',
         ],
         [
+            'text' => 'Banniere',
+            'url'  => '/banniere',
+            'icon' => 'fas fa-image',
+        ],
+        [
+            'text' => 'texte description',
+            'url'  => '/description',
+            'icon' => 'far fa-file-alt',
+        ],
+        [
+            'text' =>'Formation',
+            'url' => '/formation',
+            'icon'=>'fas fa-laptop-code'
+        ],
+        [
+            'text' => 'Contact',
+            'url'  => '/contact',
+            'icon' => 'fas fa-info',
+        ],
+        [
+            'text' => 'Cards',
+            'url'  => '/card',
+            'icon' => 'fas fa-newspaper',
+        ],
+        [
             'text' => 'inscription',
             'url'  => '/Inscription',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        [
+            'text'        => 'demande pc',
+            'url'         => '/Pc',
+            'icon'        => 'fas fa-laptop',
+        ],
+
     ],
 
     /*

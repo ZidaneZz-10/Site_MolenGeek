@@ -3,21 +3,21 @@
 @section('content')
         <div class="card text-center d-flex ">
             <div class="card-header bg-primary text-white">
-                Demande
+                Demande de pc
             </div>
             @foreach($datas as $element)
             <div class="card-body d-flex flex-column align-items-center">
-               <p>nom : {{$element->nom}}</p>
-               <p>prenom : {{$element->prenom}}</p>
-               <p>email : {{$element->email}}</p>
-               <p>formation : {{$element->formation->titre}}</p>
+               <p>nom : {{$element->pc->name}}</p>
+               <p>email : {{$element->pc->email}}</p>
+               <p>status : {{$element->statut}}</p>
+               <p>raison : {{$element->raison}}</p>
             </div>
-            <form action="/Inscription/{{$element->id}}" method='post'>
+            <form action="/Pc/{{$element->id}}" method='post'>
                 @method('PUT')
                 @csrf
                     <button type="submit" class='btn btn-success'>Accepter</button>
             </form>
-            <form action="/Inscription/{{$element->id}}" method="post">
+            <form action="/Pc/{{$element->id}}" method="post">
                 @method('DELETE')
                 @csrf
                     <button type="submit" class='btn btn-danger'>Refuser</button>

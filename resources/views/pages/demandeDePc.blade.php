@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sixteen Clothing HTML Template</title>
+    <title>Molengeek</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,13 +41,13 @@ https://templatemo.com/tm-546-sixteen-clothing
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-        <a class="navbar-brand" href="/"><h2>MOLEN<em>GEEK</em></h2></a>
+          <a class="navbar-brand" href="/"><h2>MOLEN<em>GEEK</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="/">Home
                   <span class="sr-only">(current)</span>
                 </a>
@@ -55,8 +55,8 @@ https://templatemo.com/tm-546-sixteen-clothing
               <li class="nav-item">
                 <a class="nav-link" href="/demandeFormation">demande formation</a>
               </li>
-              @if(Auth::check())
-              <li class="nav-item">
+              @if(Auth::Check())
+              <li class="nav-item active">
                 <a class="nav-link" href="/demandeDePc">demande de pc</a>
               </li>
               @endif
@@ -67,6 +67,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 </li>
               @endif
               @endauth
+
               @if(Auth::check() == false)
               <li class="nav-item">
                 <a class="nav-link border" href="/login">se connecter</a>
@@ -98,116 +99,64 @@ https://templatemo.com/tm-546-sixteen-clothing
       <div class="owl-banner owl-carousel">
         <div class="banner-item-01">
           <div class="text-content">
-            <h1 class='text-danger' style='text-shadow: 1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000,
-    0px 1px 0 #000,
-    0px -1px 0 #000,
-    -1px 0px 0 #000,
-    1px 0px 0 #000,
-    2px 2px 0 #000,
-    -2px 2px 0 #000,
-    2px -2px 0 #000,
-    -2px -2px 0 #000,
-    0px 2px 0 #000,
-    0px -2px 0 #000,
-    -2px 0px 0 #000,
-    2px 0px 0 #000,
-    1px 2px 0 #000,
-    -1px 2px 0 #000,
-    1px -2px 0 #000,
-    -1px -2px 0 #000,
-    2px 1px 0 #000,
-    -2px 1px 0 #000,
-    2px -1px 0 #000,
-    -2px -1px 0 #000;'>Formation Molengeek</h1>
-            <h2 class='text-warning' style='text-shadow: 1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000,
-    0px 1px 0 #000,
-    0px -1px 0 #000,
-    -1px 0px 0 #000,
-    1px 0px 0 #000,
-    2px 2px 0 #000,
-    -2px 2px 0 #000,
-    2px -2px 0 #000,
-    -2px -2px 0 #000,
-    0px 2px 0 #000,
-    0px -2px 0 #000,
-    -2px 0px 0 #000,
-    2px 0px 0 #000,
-    1px 2px 0 #000,
-    -1px 2px 0 #000,
-    1px -2px 0 #000,
-    -1px -2px 0 #000,
-    2px 1px 0 #000,
-    -2px 1px 0 #000,
-    2px -1px 0 #000,
-    -2px -1px 0 #000;'>Choissisez votre futur chez nous</h2>
+            <h4>Formation Molengeek</h4>
+            <h2>Choissisez votre futur chez nous</h2>
           </div>
         </div>
       </div>
     </div>
     <!-- Banner Ends Here -->
 
-    <div class='container text-center mx-5 my-5'>
-      <h1 class='mb-5'>Qu'est ce que {{$description[0]->titre}}</h1>
-      <p class='mx-5'>{{$description[0]->texte}}</p>
-      <hr>
-    </div>
-    <div class='container my-5'>
-      <h1 class='text-center mb-5'>Nos Formations</h1>
-      <div class="row">
-        @foreach($formations as $element)
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{$element->titre}}</h5>
-              <p>horaire : {{$element->horaire}}</p>
-              <p>durée : {{$element->durée}}</p>
-              <p>coût : {{$element->prix}}</p>
-              <p class="card-text">{{$element->description}}</p>
-              <a href="/demandeFormation" class="btn btn-primary">t'inscrire</a>
-            </div>
-          </div>
-        </div>
-        @endforeach
-      </div>
-      <hr>
-    </div>
-    <div class='container'>
-      <h1 class='text-center my-5'>Les News</h1>
-          <div class="row row-cols-1 row-cols-md-2 g-4 container mx-auto">
-            @foreach($cards as $card)
-            <div class="col">
-              <div class="card">
-                <img src="{{asset('images/'.$card->image)}}" class="card-img-top" alt="..." height='200px' width='300px'>
-                <div class="card-body">
-                  <h5 class="card-title">{{$card->titre}}</h5>
-                  <p class="card-text">{{$card->description}}</p>
+    <div class="latest-products">
+        <div class="container d-flex flex-column align-items-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>Demande ou problème pc</h2>
+                    </div>
                 </div>
-              </div>
             </div>
-            @endforeach
-          </div>
-          <hr>
-      </div>
-      <div class='container my-5 text-center'>
-        <h1>Contactez nous....</h1>
-        <p>{{$contact[0]->tel}}</p>
-        <p>{{$contact[0]->mail}}</p>
-        <p>{{$contact[0]->adresse}}</p>
-        <iframe src="{{$contact[0]->map}}" frameborder="0"></iframe>
-      </div>
+            <form action="/DemandePcEnvoie" method="post">
+                @csrf
+                <div class="row">
+                    <div class="mb-3">
+                        nom : {{auth::user()->name}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                        email : {{auth::user()->email}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 d-flex flex-column">
+                        <label for="raison">Raison : </label>
+                        <textarea name="raison" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                
+                <!-- <div class='row'>
+                    <div class='mb-3'>
+                        <select name="formation_id" style='width:220px'>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div> -->
+                <div class='row d-flex justify-content-center'>
+                    <button type="submit" class='btn btn-danger'>envoyer</button>
+                </div>
+            </form>
+        </div>    
+    </div>
+
+    
     <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="inner-content">
-              <p>Copyright &copy; <span class='text-danger'> modifier par le groupe 5</span> 2020 Sixteen Clothing Co., Ltd.
-            
+              <p class='text-center'>Copyright &copy; <span class='text-danger'> modifier par le groupe 5</span> 2020 Sixteen Clothing Co., Ltd.
+                  
             - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
             </div>
           </div>

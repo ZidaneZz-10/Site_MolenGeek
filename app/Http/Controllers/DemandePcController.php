@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Inscription;
-use App\Models\User;
-use App\Models\Etat;
+use App\Models\demandePc;
 use Illuminate\Http\Request;
-use App\Mail\MailRefus;
-use App\Mail\MailAccepter;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Hash;
-class InscriptionController extends Controller
+use App\Mail\MailPcAccepter;
+use App\Mail\MailPcRefus;
+use Illuminate\Support\Facades\Auth;
+
+
+class DemandePcController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,8 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        $datas = Inscription::all();
-        return view('pages.adminInscription',compact('datas'));
+        $datas = demandePc::all();
+        return view('pages.adminPc',compact('datas'));
     }
 
     /**
@@ -41,13 +41,9 @@ class InscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        $newEntry = new Inscription;
-        $etat = Etat::all();
-        $newEntry->nom = $request->nom;
-        $newEntry->prenom = $request->prenom;
-        $newEntry->email = $request->email;
-        $newEntry->etat_id = $etat[0]->id;
-        $newEntry->formation_id = $request->formation_id;
+        $newEntry = new demandePc;
+        $newEntry->raison = $request->raison;
+        $newEntry->user_id = auth::user()->id;
         $newEntry->save();
         return redirect()->back();
     }
@@ -55,10 +51,10 @@ class InscriptionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Inscription  $inscription
+     * @param  \App\Models\demandePc  $demandePc
      * @return \Illuminate\Http\Response
      */
-    public function show(Inscription $inscription)
+    public function show(demandePc $demandePc)
     {
         //
     }
@@ -66,10 +62,10 @@ class InscriptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Inscription  $inscription
+     * @param  \App\Models\demandePc  $demandePc
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inscription $inscription)
+    public function edit(demandePc $demandePc)
     {
         //
     }
@@ -78,34 +74,29 @@ class InscriptionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Inscription  $inscription
+     * @param  \App\Models\demandePc  $demandePc
      * @return \Illuminate\Http\Response
      */
     public function update($id)
     {
-        $accepter = new User;
-        $etat = Etat::all();
-        $inscrit = Inscription::find($id);
-        Mail::to($inscrit->email)->send(new MailAccepter($id));
-        $accepter->name = $inscrit->nom;
-        $accepter->email = $inscrit->email;
-        $accepter->etat_id = $etat[1]->id;
-        $accepter->password = Hash::make($inscrit->email); 
+        $accepter = demandePc::find($id);
+        Mail::to($accepter->pc->email)->send(new MailPcAccepter());
+        $accepter->statut = 'obtenue'; 
         $accepter->save();
-        $inscrit->delete();
         return redirect()->back(); 
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Inscription  $inscription
+     * @param  \App\Models\demandePc  $demandePc
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $deleteDemande = Inscription::find($id);
-        Mail::to($deleteDemande->email)->send(new MailRefus());
+        $deleteDemande = demandePc::find($id);
+        Mail::to($deleteDemande->pc->email)->send(new MailPcRefus());
         $deleteDemande->delete();
         return redirect()->back();
     }

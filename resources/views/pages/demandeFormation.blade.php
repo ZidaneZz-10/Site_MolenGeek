@@ -57,9 +57,17 @@ https://templatemo.com/tm-546-sixteen-clothing
               </li>
               @if(Auth::Check())
               <li class="nav-item">
-                <a class="nav-link" href="about.html">demande de pc</a>
+                <a class="nav-link" href="/demandeDePc">demande de pc</a>
               </li>
               @endif
+              @auth
+              @if(Auth::user()->etat_id == '3')
+                <li>
+                  <a href="/home" class="nav-link">admin</a>
+                </li>
+              @endif
+              @endauth
+
               @if(Auth::check() == false)
               <li class="nav-item">
                 <a class="nav-link border" href="/login">se connecter</a>
@@ -128,13 +136,15 @@ https://templatemo.com/tm-546-sixteen-clothing
                         <input type="text" class="form-control" name='email'>
                     </div>
                 </div>
-                <!-- <div class='row'>
+                <div class='row'>
                     <div class='mb-3'>
                         <select name="formation_id" style='width:220px'>
-                            <option value=""></option>
+                          @foreach($formation as $element)
+                            <option value="{{$element->id}}">{{$element->titre}}</option>
+                          @endforeach
                         </select>
                     </div>
-                </div> -->
+                </div>
                 <div class='row d-flex justify-content-center'>
                     <button type="submit" class='btn btn-danger'>envoyer</button>
                 </div>
@@ -148,7 +158,7 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="row">
           <div class="col-md-12">
             <div class="inner-content">
-              <p class='text-center'>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+              <p class='text-center'>Copyright &copy; <span class='text-danger'> modifier par le groupe 5</span> 2020 Sixteen Clothing Co., Ltd.
                   
             - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
             </div>

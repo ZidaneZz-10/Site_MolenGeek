@@ -20,6 +20,8 @@ class CreateInscriptionsTable extends Migration
             $table->string('email');
             $table->unsignedBigInteger('etat_id');
             $table->foreign('etat_id')->references('id')->on('etats');
+            $table->unsignedBigInteger('formation_id');
+            $table->foreign('formation_id')->references('id')->on('formations');
             $table->timestamps();
         });
     }
