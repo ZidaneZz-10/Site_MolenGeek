@@ -1,0 +1,1 @@
+<p>Votre demande de formation n'as pas été accepter</p>
