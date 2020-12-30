@@ -12,6 +12,7 @@
                <p>status : {{$element->statut}}</p>
                <p>raison : {{$element->raison}}</p>
             </div>
+            @if( $element->statut != 'obtenue')
             <form action="/Pc/{{$element->id}}" method='post'>
                 @method('PUT')
                 @csrf
@@ -22,6 +23,9 @@
                 @csrf
                     <button type="submit" class='btn btn-danger'>Refuser</button>
             </form>
+            @else
+                <i class="fas fa-thumbs-up fa-4x"></i>
+            @endif
             <hr>
             @endforeach
             <div class="card-footer text-muted bg-primary">
